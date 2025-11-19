@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Услуги | D. BOLKÓNSKAYA</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      @font-face {
+        font-family: "CHAOS16";
+        src: url("./fonts/CHAOS16.woff2") format("woff2"),
+          url("./fonts/CHAOS16.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "coolvetica";
+        src: url("./fonts/aa_coolvetica.woff2") format("woff2"),
+          url("./fonts/aa_coolvetica.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "HelveticaNeueCyrBold";
+        src: url("./fonts/helveticaneuecyr-bold.woff2") format("woff2"),
+          url("./fonts/helveticaneuecyr-bold.woff") format("woff");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        background-color: #213742;
+        color: #ffffff;
+        font-family: "coolvetica", "HelveticaNeueCyrBold", "Helvetica", "Arial",
+          sans-serif;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "CHAOS16", "HelveticaNeueCyrBold", "Impact", "Arial Black",
+          sans-serif;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ffebaf;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #213742;
+        color: #ffffff;
+        font-family: "coolvetica", sans-serif;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "CHAOS16", sans-serif;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ffebaf;
+      }
+
+      /* Хэдер */
+      header {
+        background-color: #4c9db0;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        height: 50px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        order: 2;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      nav {
+        order: 1;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      nav a:hover {
+        background-color: #ffebaf;
+        color: #213742;
+        box-shadow: 0 0 15px #ffebaf;
+      }
+
+      /* Звёзды */
+      .stars-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        pointer-events: none;
+        z-index: 100;
+      }
+
+      .star {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #ffebaf;
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+        animation: swing 3s infinite ease-in-out;
+        transform-origin: top center;
+      }
+
+      .star::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 20px;
+        background-color: #ffffff;
+      }
+
+      @keyframes swing {
+        0%,
+        100% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+      }
+
+      /* Чат-бот */
+      .chat-bot {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #4c9db0, #3a7a8a);
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        max-width: 300px;
+        margin: 0 auto;
+        animation: float 3s ease-in-out infinite;
+        border: 2px solid #ffebaf;
+      }
+
+      .chat-bot-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .chat-bot-title {
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 14px;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 18px;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .close-btn:hover {
+        background-color: #ffebaf;
+        color: #213742;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .chat-bot p {
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .chat-bot-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #ffebaf;
+        color: #213742;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      }
+
+      .chat-bot-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #ffebaf;
+      }
+
+      .chat-bot.hidden {
+        display: none;
+      }
+
+      /* Основной контент */
+      main {
+        padding: 30px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-section {
+        margin-bottom: 50px;
+      }
+
+      .service-title {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+
+      .service-description {
+        background-color: #4c9db0;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .service-description:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px #ffebaf;
+      }
+
+      .service-windows {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      /* ВЕРТИКАЛЬНЫЕ КОНТЕЙНЕРЫ ДЛЯ СЪЁМОК */
+      .shooting-window {
+        background-color: #ffffff;
+        color: #213742;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .shooting-window::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #ffebaf, #4c9db0);
+      }
+
+      .shooting-window:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px #ffebaf;
+      }
+
+      .shooting-window h3 {
+        color: #213742;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 1.3rem;
+      }
+
+      /* ИСПРАВЛЕННОЕ СЛАЙД-ШОУ - ВЕРТИКАЛЬНОЕ 3:4 БЕЗ ПОЛОСОК */
+      .slideshow-vertical {
+        width: 100%;
+        height: 400px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 15px;
+        position: relative;
+        background-color: #213742;
+      }
+
+      .slideshow-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.7s ease-in-out;
+      }
+
+      /* ПЕРВАЯ КАРТИНКА ВИДНА ВСЕГДА БЕЗ МИГАНИЯ */
+      .slideshow-img:nth-child(1) {
+        opacity: 1;
+        z-index: 4;
+      }
+
+      .slideshow-img:nth-child(2) {
+        opacity: 0;
+        z-index: 3;
+      }
+
+      .slideshow-img:nth-child(3) {
+        opacity: 0;
+        z-index: 2;
+      }
+
+      .slideshow-img:nth-child(4) {
+        opacity: 0;
+        z-index: 1;
+      }
+
+      /* ПЛАВНАЯ СМЕНА ПРИ НАВЕДЕНИИ - РАСТВОРЕНИЕ ОДНОЙ ФОТКИ В ДРУГУЮ */
+      .slideshow-vertical:hover .slideshow-img:nth-child(1) {
+        animation: dissolve 12s infinite;
+      }
+      .slideshow-vertical:hover .slideshow-img:nth-child(2) {
+        animation: dissolve 12s infinite 3s;
+      }
+      .slideshow-vertical:hover .slideshow-img:nth-child(3) {
+        animation: dissolve 12s infinite 6s;
+      }
+      .slideshow-vertical:hover .slideshow-img:nth-child(4) {
+        animation: dissolve 12s infinite 9s;
+      }
+
+      @keyframes dissolve {
+        0% {
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        25% {
+          opacity: 1;
+        }
+        40% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .price-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4c9db0;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-family: "coolvetica", sans-serif;
+        font-size: 14px;
+      }
+
+      .price-btn:hover {
+        background-color: #ffebaf;
+        color: #213742;
+        box-shadow: 0 0 15px #ffebaf;
+      }
+
+      /* Блок DIGITAL */
+      .digital-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .digital-window {
+        background-color: #ffffff;
+        color: #213742;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+      }
+
+      .digital-window:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px #ffebaf;
+      }
+
+      .digital-window h3 {
+        color: #213742;
+        text-align: center;
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      .service-item {
+        background-color: rgba(76, 157, 176, 0.1);
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .service-item:hover {
+        background-color: rgba(76, 157, 176, 0.2);
+        transform: translateX(5px);
+      }
+
+      .service-item h4 {
+        margin-bottom: 10px;
+        color: #213742;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
+      }
+
+      .service-item p {
+        margin-bottom: 10px;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      .price-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .price-option {
+        flex: 1;
+        min-width: 100px;
+      }
+
+      .special-package {
+        background: linear-gradient(135deg, #ffebaf, #4c9db0);
+        color: #213742;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        margin-top: 25px;
+        position: relative;
+        overflow: hidden;
+        grid-column: 1 / -1;
+      }
+
+      .special-package::before {
+        content: "✧";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 1.2rem;
+      }
+
+      .special-package::after {
+        content: "✧";
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 1.2rem;
+      }
+
+      /* Блок 3 */
+      .cta-section {
+        text-align: center;
+        margin-top: 40px;
+        padding: 30px;
+        background-color: #4c9db0;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-section p {
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .magic-btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #ffebaf;
+        color: #213742;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        font-size: 1rem;
+      }
+
+      .magic-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px #ffebaf;
+      }
+
+      /* Футер */
+      footer {
+        background-color: #4c9db0;
+        padding: 15px;
+        text-align: center;
+        border-radius: 15px 15px 0 0;
+        margin-top: 40px;
+      }
+
+      /* Десктопная версия */
+      @media (min-width: 768px) {
+        header {
+          padding: 15px 30px;
+          flex-wrap: nowrap;
+        }
+
+        nav {
+          order: 1;
+          width: auto;
+          margin-bottom: 0;
+        }
+
+        .logo {
+          order: 2;
+          height: 60px;
+        }
+
+        nav ul {
+          gap: 30px;
+        }
+
+        nav a {
+          font-size: 18px;
+        }
+
+        .stars-container {
+          height: 100px;
+        }
+
+        .star {
+          width: 20px;
+          height: 20px;
+        }
+
+        .star::before {
+          top: -30px;
+          height: 30px;
+        }
+
+        .chat-bot {
+          bottom: 30px;
+          left: 30px;
+          right: auto;
+          max-width: 300px;
+          padding: 20px;
+        }
+
+        .chat-bot-title {
+          font-size: 16px;
+        }
+
+        .chat-bot p {
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+
+        .chat-bot-btn {
+          padding: 12px;
+          font-size: 16px;
+        }
+
+        main {
+          padding: 50px 30px;
+        }
+
+        .service-section {
+          margin-bottom: 80px;
+        }
+
+        .service-title {
+          font-size: 2.5rem;
+          margin-bottom: 40px;
+        }
+
+        .service-description {
+          padding: 25px;
+          border-radius: 20px;
+          margin-bottom: 40px;
+        }
+
+        .service-windows {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+
+        .shooting-window {
+          padding: 30px;
+          border-radius: 20px;
+        }
+
+        .shooting-window h3 {
+          font-size: 1.5rem;
+          margin-bottom: 20px;
+        }
+
+        .slideshow-vertical {
+          height: 667px;
+          border-radius: 15px;
+          margin-bottom: 20px;
+        }
+
+        .price-btn {
+          padding: 12px;
+          border-radius: 10px;
+          margin-top: 20px;
+          font-size: 16px;
+        }
+
+        .digital-container {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+
+        .digital-window {
+          padding: 30px;
+          border-radius: 20px;
+        }
+
+        .digital-window h3 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+        }
+
+        .service-item {
+          padding: 20px;
+          border-radius: 15px;
+          margin-bottom: 20px;
+        }
+
+        .service-item h4 {
+          font-size: 1.2rem;
+        }
+
+        .service-item p {
+          font-size: 16px;
+        }
+
+        .price-options {
+          gap: 10px;
+          margin-top: 15px;
+        }
+
+        .price-option {
+          min-width: 120px;
+        }
+
+        .special-package {
+          padding: 25px;
+          border-radius: 15px;
+          margin-top: 30px;
+        }
+
+        .special-package::before {
+          font-size: 1.5rem;
+        }
+
+        .special-package::after {
+          font-size: 1.5rem;
+        }
+
+        .cta-section {
+          margin-top: 60px;
+          padding: 40px;
+          border-radius: 20px;
+        }
+
+        .cta-section p {
+          font-size: 1.2rem;
+          margin-bottom: 20px;
+        }
+
+        .magic-btn {
+          padding: 15px 30px;
+          border-radius: 30px;
+          font-size: 1.2rem;
+        }
+
+        footer {
+          padding: 20px;
+          margin-top: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <img
+        src="whoisbolkonskaya.png"
+        alt="Логотип D. BOLKÓNSKAYA"
+        class="logo"
+      />
+
+      <!-- Звёзды -->
+      <div class="stars-container">
+        <div class="star" style="left: 10%; animation-delay: 0s"></div>
+        <div class="star" style="left: 25%; animation-delay: 0.5s"></div>
+        <div class="star" style="left: 40%; animation-delay: 1s"></div>
+        <div class="star" style="left: 55%; animation-delay: 1.5s"></div>
+        <div class="star" style="left: 70%; animation-delay: 2s"></div>
+        <div class="star" style="left: 85%; animation-delay: 2.5s"></div>
+      </div>
+    </header>
+
+    <!-- Чат-бот -->
+    <div class="chat-bot" id="chatBot">
+      <div class="chat-bot-header">
+        <div class="chat-bot-title">Чат-бот Дарья</div>
+        <button class="close-btn" onclick="closeChatBot()">×</button>
+      </div>
+      <p>Записывайся СЕЙЧАС и получи СКИДКУ 30%</p>
+      <a href="https://t.me/matushkaporyadushka" class="chat-bot-btn"
+        >Записаться</a
+      >
+    </div>
+
+    <main>
+      <!-- Блок 1: СЪЁМКИ -->
+      <section class="service-section" id="shootings">
+        <h2 class="service-title">СЪЁМКИ</h2>
+
+        <div class="service-description">
+          <p>
+            помощь в создании идеи, выборе локации, образа, вместе соберем
+            референсы, сделаем мудборд
+          </p>
+          <p>длительность съемки: до 1.5ч (работаем на результат)</p>
+          <p>
+            удачные исходники и до 30 кадров в авторской обработке (ретушь,
+            цветокоррекция, а также – коллажи и постеры!)
+          </p>
+        </div>
+
+        <div class="service-windows">
+          <div class="shooting-window" id="individual">
+            <h3>ИНДИВИДУАЛЬНАЯ ФОТОСЕССИЯ</h3>
+            <div class="slideshow-vertical">
+              <!-- ПЕРВАЯ ФОТКА ВИДНА ВСЕГДА -->
+              <img
+                src="img1.jpg"
+                alt="Индивидуальная съемка 1"
+                class="slideshow-img"
+              />
+              <img
+                src="img2.jpg"
+                alt="Индивидуальная съемка 2"
+                class="slideshow-img"
+              />
+              <img
+                src="img3.jpg"
+                alt="Индивидуальная съемка 3"
+                class="slideshow-img"
+              />
+              <img
+                src="img4.jpg"
+                alt="Индивидуальная съемка 4"
+                class="slideshow-img"
+              />
+            </div>
+            <p>— СТОИМОСТЬ: 4000₽</p>
+            <a href="contacts.html" class="price-btn">Заказать</a>
+          </div>
+
+          <div class="shooting-window" id="couple">
+            <h3>ПАРНАЯ ФОТОСЕССИЯ</h3>
+            <div class="slideshow-vertical">
+              <!-- ПЕРВАЯ ФОТКА ВИДНА ВСЕГДА -->
+              <img src="par1.jpg" alt="Парная съемка 1" class="slideshow-img" />
+              <img src="par2.jpg" alt="Парная съемка 2" class="slideshow-img" />
+              <img src="par3.jpg" alt="Парная съемка 3" class="slideshow-img" />
+              <img src="par4.jpg" alt="Парная съемка 4" class="slideshow-img" />
+            </div>
+            <p>— СТОИМОСТЬ: 5000₽</p>
+            <a href="contacts.html" class="price-btn">Заказать</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок 2: DIGITAL -->
+      <section class="service-section" id="digital">
+        <h2 class="service-title">DIGITAL</h2>
+
+        <div class="service-description">
+          <p>
+            есть у меня тут одна магия, которая превращает сырую идею в сильный
+            и стилёвый дизайн…
+          </p>
+          <p>
+            моя работа — это не просто картинки. я продумываю каждую деталь,
+            чтобы визуал работал и притягивал нужных клиентов.
+          </p>
+          <p>
+            а чтобы результат попал точно в цель, в каждую услугу входит 2
+            раунда правок ~
+          </p>
+        </div>
+
+        <div class="digital-container">
+          <!-- Графический дизайн -->
+          <div class="digital-window" id="design">
+            <h3>ГРАФИЧЕСКИЙ ДИЗАЙН</h3>
+
+            <div class="service-item">
+              <h4>★ ЛОГОТИП</h4>
+              <p>
+                • разработаю с нуля, освежу устаревший или доработаю
+                существующий
+              </p>
+              <p>• 3 уникальных варианта на выбор</p>
+              <a href="contacts.html" class="price-btn">3 490 ₽</a>
+            </div>
+
+            <div class="service-item">
+              <h4>★ ФИРМЕННЫЙ СТИЛЬ</h4>
+              <p>
+                • создам гармоничный набор, который будет говорить о вас без
+                слов
+              </p>
+              <p>
+                фирменные элементы (иллюстрации, иконки) + цветовая палитра +
+                шрифтовая пара
+              </p>
+              <a href="contacts.html" class="price-btn">4 990 ₽</a>
+            </div>
+
+            <div class="service-item">
+              <h4>★ ВИЗИТКА</h4>
+              <p>• дизайн или редизайн двусторонней визитки</p>
+              <a href="contacts.html" class="price-btn">1 490 ₽</a>
+            </div>
+
+            <div class="service-item">
+              <h4>★ ДИЗАЙН ПОСТОВ</h4>
+              <p>
+                • дизайн в нужных размерах, адаптация текста и визуала, экспорт
+                в PNG/JPG
+              </p>
+              <div class="price-options">
+                <a href="contacts.html" class="price-btn price-option"
+                  >1 слайд — 590 ₽</a
+                >
+                <a href="contacts.html" class="price-btn price-option"
+                  >3 слайда — 1 490 ₽</a
+                >
+                <a href="contacts.html" class="price-btn price-option"
+                  >5 слайдов — 2 490 ₽</a
+                >
+                <a href="contacts.html" class="price-btn price-option"
+                  >10 слайдов — 4 490 ₽</a
+                >
+              </div>
+            </div>
+
+            <div class="service-item">
+              <h4>★ ОФОРМЛЕНИЕ СОЦСЕТЕЙ: ПОЛНОЕ ПРЕОБРАЖЕНИЕ</h4>
+              <p>
+                • создам целостный и притягательный образ для вашего профиля
+              </p>
+              <p>
+                • аватар + баннер (шапка) + 3 слайда для постов + пак для сторис
+                (градиенты, рамки, подложки)
+              </p>
+              <a href="contacts.html" class="price-btn">4 990 ₽</a>
+            </div>
+          </div>
+
+          <!-- Нейроискусство -->
+          <div class="digital-window" id="neuro">
+            <h3>НЕЙРОИСКУССТВО</h3>
+            <p class="service-description">
+              Превращаю ваши идеи в визуальные шедевры с помощью искусственного
+              интеллекта. Уникальные изображения, которые выделят ваш бренд
+              среди конкурентов.
+            </p>
+
+            <div class="service-item">
+              <h4>УЛУЧШЕНИЕ ПРОМПТА</h4>
+              <p>
+                Превращаю ваши сырые идеи в точные команды для нейросетей, чтобы
+                получить именно то, что вы задумали. Идеально для точной
+                визуализации ваших концепций.
+              </p>
+              <a href="contacts.html" class="price-btn"
+                >от 190 РУБ. ЗА УСЛУГУ</a
+              >
+            </div>
+
+            <div class="service-item">
+              <h4>ГЕНЕРАЦИЯ ИЗОБРАЖЕНИЙ ПО ТЕКСТУ (TXT2IMG)</h4>
+              <p>
+                Создаю уникальные визуальные образы из ваших описаний. Идеально
+                для контента, иллюстраций и креативных проектов. Быстро,
+                качественно и безгранично креативно!
+              </p>
+              <div class="price-options">
+                <a href="contacts.html" class="price-btn price-option"
+                  >ПАК 3 ИЗОБРАЖЕНИЯ - 390 ₽</a
+                >
+                <a href="contacts.html" class="price-btn price-option"
+                  >ПАК 5 ИЗОБРАЖЕНИЙ - 590 ₽</a
+                >
+                <a href="contacts.html" class="price-btn price-option"
+                  >ПАК 10 ИЗОБРАЖЕНИЙ - 990 ₽</a
+                >
+              </div>
+              <a href="https://t.me/matushkaporyadushka" class="price-btn"
+                >МНЕ НУЖНО БОЛЬШЕ</a
+              >
+            </div>
+
+            <div class="service-item">
+              <h4>НЕЙРО-РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ (IMG2IMG)</h4>
+              <p>
+                Вдохну новую жизнь в ваши существующие изображения или создам
+                вариации на их основе с сохранением стиля. Мощный инструмент для
+                трансформации визуального контента!
+              </p>
+              <div class="price-options">
+                <a href="contacts.html" class="price-btn price-option"
+                  >ПАК 3 ИЗОБРАЖЕНИЯ - 590 ₽</a
+                >
+                <a href="contacts.html" class="price-btn price-option"
+                  >ПАК 5 ИЗОБРАЖЕНИЙ - 790 ₽</a
+                >
+                <a href="contacts.html" class="price-btn price-option"
+                  >ПАК 10 ИЗОБРАЖЕНИЙ - 1190 ₽</a
+                >
+              </div>
+              <a href="https://t.me/matushkaporyadushka" class="price-btn"
+                >МНЕ НУЖНО БОЛЬШЕ</a
+              >
+            </div>
+          </div>
+
+          <!-- Специальный пакет -->
+          <div class="special-package">
+            <h4>✧ ПАКЕТ «ВСЁ И СРАЗУ» ✧</h4>
+            <p>• идеален для запуска нового проекта или полного ребрендинга!</p>
+            <p>★ разработка логотипа</p>
+            <p>★ фирменный стиль</p>
+            <p>★ двусторонняя визитка</p>
+            <p>★ оформление соцсетей (полный комплект)</p>
+            <a href="contacts.html" class="price-btn">13 990 ₽</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок 3 -->
+      <section class="cta-section">
+        <p>не видишь нужную услугу? свяжись напрямую!</p>
+        <a href="https://t.me/matushkaporyadushka" class="magic-btn"
+          >ХОЧУ МАГИИ В СВОЙ БИЗНЕС!</a
+        >
+      </section>
+    </main>
+
+    <footer>
+      <p>+7 912 399 78 50 | D. BOLKÓNSKAYA | Ким Дарья</p>
+    </footer>
+
+    <script>
+      function closeChatBot() {
+        document.getElementById("chatBot").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>

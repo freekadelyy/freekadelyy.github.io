@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты | D. BOLKÓNSKAYA</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      @font-face {
+        font-family: "CHAOS16";
+        src: url("./fonts/CHAOS16.woff2") format("woff2"),
+          url("./fonts/CHAOS16.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "coolvetica";
+        src: url("./fonts/aa_coolvetica.woff2") format("woff2"),
+          url("./fonts/aa_coolvetica.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "HelveticaNeueCyrBold";
+        src: url("./fonts/helveticaneuecyr-bold.woff2") format("woff2"),
+          url("./fonts/helveticaneuecyr-bold.woff") format("woff");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        background-color: #213742;
+        color: #ffffff;
+        font-family: "coolvetica", "HelveticaNeueCyrBold", "Helvetica", "Arial",
+          sans-serif;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "CHAOS16", "HelveticaNeueCyrBold", "Impact", "Arial Black",
+          sans-serif;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ffebaf;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #213742;
+        color: #ffffff;
+        font-family: "coolvetica", sans-serif;
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "CHAOS16", sans-serif;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ffebaf;
+      }
+
+      /* Хэдер */
+      header {
+        background-color: #4c9db0;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        height: 50px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        order: 2;
+      }
+
+      .logo:hover {
+        transform: scale(1.05);
+      }
+
+      nav {
+        order: 1;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      nav a:hover {
+        background-color: #ffebaf;
+        color: #213742;
+        box-shadow: 0 0 15px #ffebaf;
+      }
+
+      /* Звёзды */
+      .stars-container {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        pointer-events: none;
+        z-index: 100;
+      }
+
+      .star {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #ffebaf;
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+        animation: swing 3s infinite ease-in-out;
+        transform-origin: top center;
+      }
+
+      .star::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 20px;
+        background-color: #ffffff;
+      }
+
+      @keyframes swing {
+        0%,
+        100% {
+          transform: rotate(-5deg);
+        }
+        50% {
+          transform: rotate(5deg);
+        }
+      }
+
+      /* Чат-бот */
+      .chat-bot {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #4c9db0, #3a7a8a);
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        max-width: 300px;
+        margin: 0 auto;
+        animation: float 3s ease-in-out infinite;
+        border: 2px solid #ffebaf;
+      }
+
+      .chat-bot-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .chat-bot-title {
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 14px;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        color: #ffffff;
+        font-size: 18px;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .close-btn:hover {
+        background-color: #ffebaf;
+        color: #213742;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      .chat-bot p {
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .chat-bot-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #ffebaf;
+        color: #213742;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      }
+
+      .chat-bot-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #ffebaf;
+      }
+
+      .chat-bot.hidden {
+        display: none;
+      }
+
+      /* Основной контент */
+      main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 20px;
+      }
+
+      .contact-window {
+        background-color: #4c9db0;
+        padding: 40px 25px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 700px;
+        width: 100%;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+
+      .contact-window:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px #ffebaf;
+      }
+
+      .contact-window::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid #ffebaf;
+        border-radius: 20px;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .contact-window:hover::before {
+        opacity: 1;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: scale(1.02);
+          opacity: 1;
+        }
+      }
+
+      .contact-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        line-height: 1.2;
+      }
+
+      .magic-btn {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #ffebaf;
+        color: #213742;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        margin-bottom: 40px;
+      }
+
+      .magic-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 25px #ffebaf;
+      }
+
+      .social-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .social-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        background-color: #ffffff;
+        color: #213742;
+        text-decoration: none;
+        border-radius: 40px;
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .social-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .social-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px #ffebaf;
+      }
+
+      .social-btn:hover::before {
+        left: 100%;
+      }
+
+      .social-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Футер */
+      footer {
+        background-color: #4c9db0;
+        padding: 15px;
+        text-align: center;
+        border-radius: 15px 15px 0 0;
+      }
+
+      /* Десктопная версия */
+      @media (min-width: 768px) {
+        header {
+          padding: 15px 30px;
+          flex-wrap: nowrap;
+        }
+
+        nav {
+          order: 1;
+          width: auto;
+          margin-bottom: 0;
+        }
+
+        .logo {
+          order: 2;
+          height: 60px;
+        }
+
+        nav ul {
+          gap: 30px;
+        }
+
+        nav a {
+          font-size: 18px;
+        }
+
+        .stars-container {
+          height: 100px;
+        }
+
+        .star {
+          width: 20px;
+          height: 20px;
+        }
+
+        .star::before {
+          top: -30px;
+          height: 30px;
+        }
+
+        .chat-bot {
+          bottom: 30px;
+          left: 30px;
+          right: auto;
+          max-width: 300px;
+          padding: 20px;
+        }
+
+        .chat-bot-title {
+          font-size: 16px;
+        }
+
+        .chat-bot p {
+          font-size: 16px;
+          margin-bottom: 15px;
+        }
+
+        .chat-bot-btn {
+          padding: 12px;
+          font-size: 16px;
+        }
+
+        main {
+          padding: 50px 30px;
+        }
+
+        .contact-window {
+          padding: 60px 40px;
+          border-radius: 30px;
+        }
+
+        .contact-title {
+          font-size: 3rem;
+          margin-bottom: 40px;
+        }
+
+        .magic-btn {
+          padding: 18px 40px;
+          border-radius: 40px;
+          font-size: 1.2rem;
+          margin-bottom: 50px;
+        }
+
+        .social-buttons {
+          gap: 30px;
+        }
+
+        .social-btn {
+          padding: 15px 25px;
+          border-radius: 50px;
+        }
+
+        .social-icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        footer {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="services.html">Услуги</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <img
+        src="whoisbolkonskaya.png"
+        alt="Логотип D. BOLKÓNSKAYA"
+        class="logo"
+      />
+
+      <!-- Звёзды -->
+      <div class="stars-container">
+        <div class="star" style="left: 10%; animation-delay: 0s"></div>
+        <div class="star" style="left: 25%; animation-delay: 0.5s"></div>
+        <div class="star" style="left: 40%; animation-delay: 1s"></div>
+        <div class="star" style="left: 55%; animation-delay: 1.5s"></div>
+        <div class="star" style="left: 70%; animation-delay: 2s"></div>
+        <div class="star" style="left: 85%; animation-delay: 2.5s"></div>
+      </div>
+    </header>
+
+    <!-- Чат-бот -->
+    <div class="chat-bot" id="chatBot">
+      <div class="chat-bot-header">
+        <div class="chat-bot-title">Чат-бот Дарья</div>
+        <button class="close-btn" onclick="closeChatBot()">×</button>
+      </div>
+      <p>Записывайся СЕЙЧАС и получи СКИДКУ 30%</p>
+      <a href="https://t.me/matushkaporyadushka" class="chat-bot-btn"
+        >Записаться</a
+      >
+    </div>
+
+    <main>
+      <div class="contact-window">
+        <h1 class="contact-title">МАГИЯ БЕЗ ВОЛШЕБНОЙ ПАЛОЧКИ...</h1>
+
+        <div class="social-buttons">
+          <a href="https://t.me/thecrazyphotomaker" class="social-btn">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.14.141-.259.259-.374.261l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.136-.954l11.566-4.458c.538-.196 1.006.128.832.941z"
+              />
+            </svg>
+            <span>Telegram</span>
+          </a>
+
+          <a href="https://vk.com/thecrazyphotomaker" class="social-btn">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.344 16.163h-1.867c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.684-1.253.684-1.846 0-3.896-1.118-5.364-3.205-2.133-3.043-2.73-5.324-2.73-5.744 0-.254.102-.491.593-.491h1.867c.44 0 .66.203.78.677.833 2.484 2.254 4.658 2.854 4.658.22 0 .322-.102.322-.66v-2.396c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.797c.373 0 .508.203.508.643v3.473c0 .373.17.508.271.508.22 0 .407-.136.813-.525 1.271-1.525 2.186-3.844 2.186-3.844.119-.254.339-.491.763-.491h1.867c.525 0 .644.271.525.643-.22 1.017-2.373 4.031-2.373 4.031-.186.305-.254.44 0 .78.186.254.796.78 1.203 1.253.745.847 1.32 1.558 1.457 2.05.17.491-.085.744-.576.744z"
+              />
+            </svg>
+            <span>Вконтакте</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>+7 912 399 78 50 | D. BOLKÓNSKAYA | Ким Дарья</p>
+    </footer>
+
+    <script>
+      function closeChatBot() {
+        document.getElementById("chatBot").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
